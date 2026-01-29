@@ -69,6 +69,7 @@ restaurant
 and personal notes.
 6. The user saves the entry.
 7. The dish appears in the user’s gallery view.
+
 **Create a Dish Entry (Inspiration / Home Dish)**
 1. The user signs in to the app.
 2. The user clicks “Add Dish”.
@@ -77,4 +78,4 @@ and personal notes.
 5. The user enters the dish name, a brief description, and key ingredients (no full
 recipe).
 6. The user saves the entry.
-7. The dish appears i
+7. The dish appears in the user’s gallery view.
