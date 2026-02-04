@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function AddDish() {
   const [formData, setFormData] = useState({
@@ -98,25 +99,31 @@ function AddDish() {
               Home made
             </label>
           </div>
+        </div>
+
+        {origin === "restaurant" && (
+        <>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Restaurant Name</label>
+              <input
+                name="restaurant_name"
+                placeholder="e.g. That One Place"
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
 
           <div className="form-group">
-            <label>Restaurant Name</label>
+            <label>Restaurant Address</label>
             <input
-              name="restaurant_name"
-              placeholder="e.g. That One Place"
+              name="restaurant_address"
+              placeholder="123 Street, City, State"
               onChange={handleChange}
             />
           </div>
-        </div>
-
-        <div className="form-group">
-          <label>Restaurant Address</label>
-          <input
-            name="restaurant_address"
-            placeholder="123 Street, City, State"
-            onChange={handleChange}
-          />
-        </div>
+        </>)}
 
         <div className="form-group">
           <label>Dish Details</label>
