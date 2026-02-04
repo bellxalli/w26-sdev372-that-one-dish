@@ -10,6 +10,7 @@ function AddDish() {
     restaurant_address: "",
     image: null
   });
+  const [origin, setOrigin] = useState("restaurant");
 
   const navigate = useNavigate();
 
@@ -73,6 +74,31 @@ function AddDish() {
               onChange={handleChange}
             />
           </div>
+          <div className="form-group">
+            <label>Where did you have this dish?</label>
+            <label>
+              <input
+                type="radio"
+                name="origin"
+                value="restaurant"
+                checked={origin === "restaurant"}
+                onChange={() => setOrigin("restaurant")}
+              />
+              At a restaurant
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="origin"
+                value="home"
+                checked={origin === "home"}
+                onChange={() => setOrigin("home")}
+              />
+              Home made
+            </label>
+          </div>
+
           <div className="form-group">
             <label>Restaurant Name</label>
             <input
