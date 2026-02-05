@@ -59,4 +59,62 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
+// UPDATE a dish
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const {
+    dish_name,
+    cuisine,
+    dish_details,
+    restaurant_name,
+    restaurant_address,
+  } = req.body;
+
+  const sql = `
+    UPDATE dishes
+    SET dish_name = ?, cuisine = ?, dish_details = ?, restaurant_name = ?, restaurant_address = ?
+    WHERE id = ?
+  `;
+
+  try {
+    const [result] = await pool.query(sql, [
+      dish_name,
+      cuisine,
+      dish_details,
+      restaurant_name,
+      restaurant_address,
+      id,
+    ]);
+
+    if (result.affectedRows === 0)
+      return res.status(404).json({ error: "Dish not found" });
+
+    res.json({ message: "Dish updated" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to update dish" });
+  }
+});
+
+// DELETE a dish
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const [result] = await pool.query(
+      "DELETE FROM dishes WHERE id = ?",
+      [id]
+    );
+
+    if (result.affectedRows === 0)
+      return res.status(404).json({ error: "Dish not found" });
+
+    res.json({ message: "Dish deleted" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to delete dish" });
+  }
+});
+
+
 export default router;
