@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
     "dev": "node server.js"
   },
   "type": "module",
@@ -16,5 +18,9 @@
     "express": "^5.2.1",
     "multer": "^2.0.2",
     "mysql2": "^3.16.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2"
   }
 }
