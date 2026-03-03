@@ -15,7 +15,11 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,   // browser globals
+        ...globals.jest,      // Jest globals for tests
+        global: 'readonly'    // optional: fix 'global' undefined in setupTests.js
+      },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
