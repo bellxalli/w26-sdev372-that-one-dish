@@ -1,0 +1,88 @@
+###############################################################################
+# SECTION 1: SERVER STATUS
+###############################################################################
+
+### Check API Server Status
+GET http://localhost:3000/api/status
+
+
+###############################################################################
+# SECTION 2: DISH GALLERY (Gallery.jsx)
+###############################################################################
+
+### Get All Dishes (Used in Gallery component)
+GET http://localhost:3000/api/dishes
+
+
+###############################################################################
+# SECTION 3: ADD DISH (AddDish.jsx)
+###############################################################################
+
+### Add Dish (Restaurant Origin)
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "dish_name": "Cheese Burger",
+  "cuisine": "American",
+  "dish_details": "Juicy burger with cheddar cheese",
+  "restaurant_name": "That One Place",
+  "restaurant_address": "123 Food Street, Seattle WA"
+}
+
+
+### Add Dish (Home Made)
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "dish_name": "Homemade Pasta",
+  "cuisine": "Italian",
+  "dish_details": "Fresh pasta with homemade tomato sauce",
+  "restaurant_name": "",
+  "restaurant_address": ""
+}
+
+
+###############################################################################
+# SECTION 4: ADD DISH WITH IMAGE (multipart)
+###############################################################################
+
+### Upload Dish With Image
+POST http://localhost:3000/api/dishes
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="dish_name"
+
+Pizza
+--boundary
+Content-Disposition: form-data; name="cuisine"
+
+Italian
+--boundary
+Content-Disposition: form-data; name="dish_details"
+
+Wood fired pizza with basil and mozzarella
+--boundary
+Content-Disposition: form-data; name="restaurant_name"
+
+Luigi's
+--boundary
+Content-Disposition: form-data; name="restaurant_address"
+
+456 Italy Ave
+--boundary
+Content-Disposition: form-data; name="image"; filename="pizza.jpg"
+Content-Type: image/jpeg
+
+< ./pizza.jpg
+--boundary--
+
+
+###############################################################################
+# SECTION 5: VERIFY GALLERY UPDATE
+###############################################################################
+
+### Check dishes again to confirm new entry appears
+GET http://localhost:3000/api/dishes
