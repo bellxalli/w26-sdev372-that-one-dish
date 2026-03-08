@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest"
-,
-    "dev": "node server.js"
+  "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
+  "dev": "node server.js"
   },
   "type": "module",
   "keywords": [],

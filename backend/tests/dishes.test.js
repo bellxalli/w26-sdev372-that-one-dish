@@ -15,6 +15,11 @@ import request from "supertest";
 describe("Dishes API", () => {
   beforeEach(() => {
     mockQuery.mockReset();
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   describe("GET /api/dishes", () => {
