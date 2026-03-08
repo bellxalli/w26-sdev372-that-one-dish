@@ -98,23 +98,12 @@ input:focus, textarea:focus {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-... (101 lines left)
-Collapse
-index.css
-4 KB
-.page {
   background: #9fb2b4;
   min-height: 100vh;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
-Expand
-createRestaurantDish.css
-2 KB
-﻿
-Liza Khrapach
-lizakhrapach
- 
+
 /* Global Reset */
 body {
   margin: 0;

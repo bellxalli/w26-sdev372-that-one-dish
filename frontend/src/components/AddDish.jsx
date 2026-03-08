@@ -57,7 +57,7 @@ function AddDish() {
       navigate("/");
     } catch (err) {
       console.error(err);
-      alert("Error adding dish. Check if backend is running on port 5000!");
+      alert("Error adding dish. Check if backend is running on port 3000!");
     }
   };
 
