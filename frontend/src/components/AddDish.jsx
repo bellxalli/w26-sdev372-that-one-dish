@@ -41,9 +41,7 @@ function AddDish() {
     formPayload.append("dish_details", formData.dish_details);
     formPayload.append("restaurant_name", formData.restaurant_name);
     formPayload.append("restaurant_address", formData.restaurant_address);
-    if (formData.image) {
-      formPayload.append("image", formData.image);
-    }
+    if (formData.image) formPayload.append("image", formData.image);
 
     try {
       const res = await fetch("http://localhost:3000/api/dishes", {
@@ -120,7 +118,6 @@ function AddDish() {
                 name="restaurant_name"
                 placeholder="e.g. That One Place"
                 onChange={handleChange}
-                required
               />
             </div>
           </div>

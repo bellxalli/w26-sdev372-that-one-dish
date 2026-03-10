@@ -1,13 +1,5 @@
 ###############################################################################
-# SECTION 1: SERVER STATUS
-###############################################################################
-
-### Check API Server Status
-GET http://localhost:3000/api/status
-
-
-###############################################################################
-# SECTION 2: DISH GALLERY (Gallery.jsx)
+# SECTION 1: DISH GALLERY (Gallery.jsx)
 ###############################################################################
 
 ### Get All Dishes (Used in Gallery component)
@@ -15,7 +7,7 @@ GET http://localhost:3000/api/dishes
 
 
 ###############################################################################
-# SECTION 3: ADD DISH (AddDish.jsx)
+# SECTION 2: ADD DISH (AddDish.jsx)
 ###############################################################################
 
 ### Add Dish (Restaurant Origin)
@@ -45,7 +37,7 @@ Content-Type: application/json
 
 
 ###############################################################################
-# SECTION 4: ADD DISH WITH IMAGE (multipart)
+# SECTION 3: ADD DISH WITH IMAGE (multipart)
 ###############################################################################
 
 ### Upload Dish With Image
@@ -81,8 +73,47 @@ Content-Type: image/jpeg
 
 
 ###############################################################################
-# SECTION 5: VERIFY GALLERY UPDATE
+# SECTION 4: VERIFY GALLERY UPDATE
 ###############################################################################
 
 ### Check dishes again to confirm new entry appears
 GET http://localhost:3000/api/dishes
+
+
+###############################################################################
+# SECTION 5: UPDATE A DISH
+###############################################################################
+
+### Update a Dish by ID (replace 1 with the actual dish ID)
+PUT http://localhost:3000/api/dishes/1
+Content-Type: application/json
+
+{
+  "dish_name": "Cheese Burger Deluxe",
+  "cuisine": "American",
+  "dish_details": "Juicy burger with cheddar cheese and bacon",
+  "restaurant_name": "That One Place",
+  "restaurant_address": "123 Food Street, Seattle WA"
+}
+
+
+###############################################################################
+# SECTION 6: DELETE UPLOADED IMAGES
+###############################################################################
+
+### Delete a Single Uploaded Image (replace filename with actual file)
+DELETE http://localhost:3000/api/dishes/uploads/pizza.jpg
+
+### Delete All Uploaded Images
+DELETE http://localhost:3000/api/dishes/uploads
+
+
+###############################################################################
+# SECTION 7: DELETE DISHES
+###############################################################################
+
+### Delete a Dish by ID (replace 1 with the actual dish ID)
+DELETE http://localhost:3000/api/dishes/1
+
+### Delete All Dishes
+DELETE http://localhost:3000/api/dishes
